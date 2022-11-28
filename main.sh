@@ -18,7 +18,6 @@ if [[ $2 != *@handong.ac.kr ]]; then
     echo "email domain is not handong.ac.kr"
     exit 1
 fi
-
 # -n means not empty
 if [ -n "$3" ]; then
     echo "log file : $3"
@@ -43,8 +42,6 @@ fin_time=$(date +%s)
 # Path: main.sh
 mail_title="Gradle Run Complete Notification"
 
-
-
 # send mail after run
 if [ -n "$3" ]; then
     echo "Gradle run complete on $project_dir
@@ -57,9 +54,8 @@ Elapsed time : $(($fin_time - $init_time)) seconds
 else
     echo "Gradle run complete on $project_dir
 ====================================
-Start time : $(date -d @$init_time)
-Finish time : $(date -d @$fin_time)
-====================================
+Start time   : $(date -d @$init_time)
+Finish time  : $(date -d @$fin_time)
 Elapsed time : $(($fin_time - $init_time)) seconds
 ====================================" | mail -s "$mail_title" "$email"
 fi
