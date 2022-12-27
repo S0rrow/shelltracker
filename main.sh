@@ -34,7 +34,7 @@ init_time=$(date +%s)
 
 # gradle run
 cd $project_dir
-gradle run
+gradle clean run
 
 # finish time
 fin_time=$(date +%s)
